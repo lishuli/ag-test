@@ -1,0 +1,231 @@
+<div class="pb3 home-wrapper wrapper-mode">
+  <div class="logo">
+    <p class="enter" *ngIf="!isLogin">
+      <a [routerLink]="['/dl']" onclick="_czc.push(['_trackEvent', '登录', '登录', '精选_登录入口']);">登 录</a>
+    </p>
+    <p class="info" *ngIf="isLogin" (click)="goaccount()">{{realInfo}}</p>
+    <img src="assets/logo.png">
+  </div>
+
+  <div class="login" *ngIf="showLogin">
+    <span (click)="tomyaccount()">
+      <img src="assets/common/user1.png">我的账户
+    </span>
+    <span>{{phone}}</span>
+  </div>
+  <!-- banner -->
+  <!-- <div class="home-banner">
+    <div class="banner-img">
+      <my-banner banner="banner"></my-banner>
+      <div class="trigger-wrap">
+        <div class="trigger-box"></div>
+      </div>
+    </div>
+  </div> -->
+  <!--滚动公告-->
+  <!-- <div class="notice-box" ng-if="gglist">
+    <img src="images/index/trumpet.png">
+    <div homescroll-text></div>
+  </div> -->
+
+  <!-- <div class="guide-box">
+    <div class="left" ui-sref="aqbz({wap:true})">
+      <div>
+        <img src="images/index/safe-logo.png" alt="安全保障">
+      </div>
+      <p class="txt1">稳健运营</p>
+      <p class="txt2">360°风控</p>
+    </div>
+    <a class="left" href="{{index.bannerDownUrl3}}?wap=true">
+      <div>
+        <img src="{{index.bannerDownPic3}}" alt="{{index.bannerDownTitle3}}">
+      </div>
+      <p class="txt1">{{index.bannerDownTitle3}}</p>
+      <p class="txt2">{{index.bannerDownDescribe3}}</p>
+    </a>
+    <div class="middle" ng-click="viewnow()">
+      <div>
+        <img src="images/index/vip-logo.png" alt="会员中心">
+      </div>
+      <p class="txt1">会员中心</p>
+      <p class="txt2">升级红包多多赚</p>
+    </div>
+    <div class="right" ui-sref="actCenter({wap:true})">
+      <div>
+        <img src="images/index/hotact-logo.png" alt="热门活动">
+      </div>
+      <p class="txt1">热门活动</p>
+      <p class="txt2">返现红包赚不停</p>
+    </div>
+  </div> -->
+
+  <div class="home-cplist">
+    <!--新手标-->
+    <!-- <div ng-if="index.fuiouNewHand"
+          ui-sref="cpDetail({pid:index.fuiouNewHand.id,type:index.fuiouNewHand.type,wap:true})"
+          class="home-cpbox-b home-cpbox-newhand" onclick="_czc.push(['_trackEvent', '投资新手标', '新手标标的', '精选投资入口']);">
+      <header>
+        {{index.fuiouNewHand.fullName}}
+        <span ng-if="index.fuiouNewHandLabel">{{index.fuiouNewHandLabel}}</span>
+      </header>
+      <main>
+        <div class="part-a">{{index.fuiouNewHand.rate}}<span>%</span><sup ng-if="index.fuiouNewHand.activityRate>0">+{{index.fuiouNewHand.activityRate}}<span>%</span></sup>
+        </div>
+        <div class="part-b">
+          <div class="part-b">{{index.fuiouNewHand.deadline}}天</div>
+        </div>
+        <div class="part-c">
+          <div data-progress="{{index.fuiouNewHand.pert | setProgress}}" progress-circle></div>
+          <p ng-if="index.fuiouNewHand.status==5">去抢购</p>
+          <p ng-if="index.fuiouNewHand.status==6">抢完了</p>
+          <p ng-if="index.fuiouNewHand.status==8">待还款</p>
+          <p ng-if="index.fuiouNewHand.status==9">已回款</p>
+        </div>
+      </main>
+    </div> -->
+    <!--限时秒杀-->
+    <!-- <div class="home-cpbox-b home-cpbox-seckill" ng-if="index.seckillProduct" ui-sref="cpDetail({pid:index.seckillProduct.id,type:index.seckillProduct.type,wap:true})">
+      <div>
+        <header>{{index.seckillProduct.fullName}}</header>
+        <main>
+          <div class="part-a">{{index.seckillProduct.rate}}<span>%</span><sup ng-if="index.seckillProduct.activityRate>0">+{{index.seckillProduct.activityRate}}<span>%</span></sup>
+          </div>
+          <div class="part-b">
+            <div class="part-b">{{index.seckillProduct.deadline}}天</div>
+          </div>
+          <div class="part-c">
+            <div data-progress="{{index.seckillProduct.pert | setProgress}}" progress-circle></div>
+            <p>去抢购</p> -->
+            <!--<p ng-if="index.seckillProduct.status==6">抢完了</p>-->
+            <!--<p ng-if="index.seckillProduct.status==8">待还款</p>-->
+            <!--<p ng-if="index.seckillProduct.status==9">已回款</p>-->
+          <!-- </div>
+        </main>
+      </div>
+    </div> -->
+    <!--优选产品-->
+    <!-- <div ui-sref="main.bankBillList({wap:true,tab:0})" class="home-cpbox-b" ng-if="index.preferredInvest"
+          onclick="_czc.push(['_trackEvent', '投资定期标', '优先理财', '精选投资入口']);">
+      <header>
+        {{index.preferredInvest.preferredName}}
+        <span>定期投资，多种期限任选</span>
+      </header>
+      <main>
+        <div class="part-a"  ng-if="index.preferredInvest.minRate != index.preferredInvest.maxRate">
+          {{index.preferredInvest.minRate}}<span>%~</span>{{index.preferredInvest.maxRate}}<span>%</span>
+        </div>
+        <div class="part-a"  ng-if="index.preferredInvest.minRate == index.preferredInvest.maxRate">
+          {{index.preferredInvest.minRate}}<span>%</span>
+        </div>
+        <div class="part-b">{{index.preferredInvest.minDeadline}}天起</div>
+      </main>
+    </div> -->
+    <!--vip标-->
+    <!-- <div ng-if="index.signExclusiveV" ui-sref="main.bankBillList({wap:true,tab:3})" class="home-cpbox-b">
+      <header>
+        {{index.signExclusiveV.vExclusiveName}}
+        <span>{{index.signExclusiveV.vLabel}}</span>
+      </header>
+      <main>
+        <div class="part-a" ng-if="index.signExclusiveV.minRate != index.signExclusiveV.maxRate">
+          {{index.signExclusiveV.minRate}}<span>%~</span>{{index.signExclusiveV.maxRate}}<span>%</span>
+        </div>
+        <div class="part-a" ng-if="index.signExclusiveV.minRate == index.signExclusiveV.maxRate">
+          {{index.signExclusiveV.minRate}}<span>%</span>
+        </div>
+        <div class="part-b">{{index.signExclusiveV.minDeadline}}天起</div>
+      </main>
+    </div> -->
+    <!--活动专享-->
+    <!-- <div class="home-cpbox-a">
+      <header>
+        活动专享
+        <span>投资享收益，也享好礼</span>
+      </header> -->
+      <!--iphone7标的-->
+      <!--<div ui-sref="cpDetail({pid:index.activity.id,wap:true})" ng-if="index.activity"-->
+            <!--onclick="_czc.push(['_trackEvent', '投资iphone活动标', '财胜90', '精选_活动入口(iphone)']);">-->
+        <!--<main>-->
+          <!--<div class="part-a"><img src="{{index.activity.iphonePicUrl}}"></div>-->
+          <!--<div class="part-b">-->
+            <!--<p class="rate">-->
+              <!--{{index.activity.rate}}<span>%</span><sup ng-if="index.activity.activityRate>0">+{{index.activity.activityRate}}<span>%</span></sup>-->
+            <!--</p>-->
+            <!--<p class="deadline">{{index.activity.deadline}}天</p>-->
+            <!--<span>{{index.activity.iphoneLabel}}</span>-->
+          <!--</div>-->
+          <!--<footer></footer>-->
+        <!--</main>-->
+      <!--</div>-->
+      <!--满就 送标的-->
+      <!-- <div  ng-if="!index.investSendPrize" ui-sref="mjs({wap:true})" onclick="_czc.push(['_trackEvent', '投资0元享活动标', '豪礼钜献专享标', '精选_活动入口(0元享)']);">
+        <main style="border: none;">
+          <img class="waitting" src="images/index/mjs-waitting.png" alt="">
+        </main>
+      </div>
+      <div  ng-if="index.investSendPrize" ui-sref="mjs({wap:true})" onclick="_czc.push(['_trackEvent', '投资0元享活动标', '豪礼钜献专享标', '精选_活动入口(0元享)']);">
+        <main style="border: none;">
+          <div class="part-a"><img src="{{index.investSendPrize.investSendPicUrl}}"></div> -->
+          <!--<div class="part-a"><img src="images/index/freebuy.png"></div>-->
+          <!-- <div class="part-b">
+            <p class="rate">
+              {{index.investSendPrize.rate}}<span>%</span>
+              <sup ng-if="index.investSendPrize.activityRate>0">+{{index.investSendPrize.activityRate}}<span>%</span></sup>
+            </p>
+            <p class="deadline">{{index.investSendPrize.deadLine}}天</p>
+            <span>{{index.investSendPrize.investSendLabel}}</span>
+          </div>
+          <footer></footer>
+        </main>
+      </div>
+    </div> -->
+  </div>
+
+  <!-- <div class="operate-data">
+    <img src="images/index/operate-title.png" alt="平台运营数据">
+    <div class="data-box">
+      <div>
+        <h5>累计交易额</h5>
+        <p>{{index.operateData.investCumulative/100000000 | number:2}}<span>亿</span></p>
+        <img src="images/index/foot-bank.png" alt="银行存管">
+        <div>银行存管</div>
+      </div>
+      <div>
+        <h5>已为用户赚取了</h5>
+        <p>{{index.operateData.profitCumulative/10000 | number:0}}<span>万</span></p>
+        <img src="images/index/foot-safe.png" alt="还款保障">
+        <div>多重还款保障</div>
+      </div>
+      <div>
+        <h5>累计注册人数</h5>
+        <p>{{index.operateData.regCount/10000 | number:0}}<span>万</span></p>
+        <img src="images/index/foot-lawyer.png" alt="律师支持">
+        <div>顶级律师所支持</div>
+      </div>
+    </div>
+  </div> -->
+
+  <!--圆形进度条-->
+  <!-- <div class="rem-rule"></div> -->
+  <!--活动提醒弹窗-->
+  <!-- <div class="home-tc-box" ng-if="shuangdanBox==true && index.activityId">
+    <div class="tc-box">
+      <a ng-if="addWap" href="{{index.activityUrl}}?wap=true">
+        <img class="main" src="{{index.activityImgUrl}}">
+      </a>
+      <a ng-if="!addWap" href="{{index.activityUrl}}&wap=true">
+        <img class="main" src="{{index.activityImgUrl}}">
+      </a>
+      <img class="close" src="images/index/close-tc.png" ng-click="closeTc()">
+    </div>
+  </div>
+  <div ng-if="videoplay==true" class="video-box">
+    <main>
+      <video poster="images/index/poster.png" width="100%" height="100%"
+             src="https://www.jushengcaifu.com/images/shipin/hepingjusheng.mp4" preload="none" controls></video>
+      <img class="close" src="images/index/closesd.png" ng-click="closevideo()">
+    </main>
+  </div> -->
+</div>
+<button class="samples-screen-button" (click)="requested_default_dialog()">Default with basic HTML content</button><br><br>
+<default-with-html-dialog></default-with-html-dialog>

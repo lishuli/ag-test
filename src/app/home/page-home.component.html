@@ -1,0 +1,17 @@
+<!-- 内容 -->
+<router-outlet></router-outlet>
+<!-- 底部 -->
+<div class="sign_box_bottom">
+  <a [routerLink]="['home']" [ngClass]="{'actived':globalService.activeMenu=='1'}" class="button home"  (click)="actived('1')">
+    <i class="ico_home"></i>
+  </a>
+  <a [routerLink]="['bankBillList']" [queryParams]="{wap: true}" class="button" [ngClass]="{'actived':globalService.activeMenu=='2'}" (click)="actived('2')">
+    <i class="ico_fund"></i>
+  </a>
+  <a [routerLink]="['discover']" class="button" [ngClass]="{'actived':globalService.activeMenu=='3'}" (click)="actived('3')">
+    <i class="ico_more"></i>
+  </a>
+  <a [routerLink]="['myaccountHome']" class="button accbtn" [ngClass]="{'actived':globalService.activeMenu=='4'}" (click)="actived('4')">
+    <i class="ico_account"></i>
+  </a>
+</div>

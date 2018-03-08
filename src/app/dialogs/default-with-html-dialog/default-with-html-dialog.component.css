@@ -1,0 +1,28 @@
+
+.ng2-dynamic-dialog-samples-custom-style-background {
+  opacity: 0.5;
+}
+.ng2-dynamic-dialog-samples-custom-component-dialog {
+  /* background-color: green; */
+  width: 80%;
+}
+.ng2-dynamic-dialog-samples-custom-style-title {
+  color: red;
+}
+.ng2-dynamic-dialog-samples-custom-style-button {
+  background-color: skyblue;
+}
+.ng2-dynamic-dialog-samples-custom-style-button:hover {
+  background-color: blue;
+}
+/* .ng2-dynamic-dialog-samples-custom-style-button-0 {
+  left: 250px;
+  width: 90px;
+} */
+
+/* .ng2-dynamic-dialog-samples-custom-style-button-1 {
+  width: 90px;
+} */
+/* .ng2-dynamic-dialog-modal {
+  width: 80%;
+} */

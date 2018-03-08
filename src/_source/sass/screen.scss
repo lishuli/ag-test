@@ -1,0 +1,31 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+ $reset: true; // 是否开启样式重置,默认false
+ $rem-base: 750px;
+ $Response: true;
+
+
+@import "compass/reset";
+@import "compass/CSS3";
+@import "compass/utilities/general/clearfix";
+// @import "compass/utilities/sprites";
+// @import "mobile-mixin";
+@import "mobile-mixin/reset";
+@import "mobile-mixin/rem-calc";
+@import "mobile-mixin/Response";
+@import "mobile-mixin/rem-sprites";
+
+body {
+  max-width: 750px;
+  width: 100%;
+  margin: 0 auto;
+  font: 12px/1.5 "Microsoft Yahei", arial, tahoma, "Hiragino Sans GB", \5b8b\4f53;
+  color: #323232;
+  background: #fff;
+  overflow: hidden;
+}
+
+@import "common";
+@import "home";
